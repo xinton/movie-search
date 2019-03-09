@@ -17,6 +17,8 @@ Vue.http.options.root = 'https://www.omdbapi.com'
 
 Vue.config.productionTip = false
 
+require('./assets/css/style.css')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

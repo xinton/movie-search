@@ -10,7 +10,9 @@
             <input v-model="queryText" type="text" class="form-control" id="queryText" placeholder="Find a movie">
           </div>
           <div class="col-md-2 col-sm-12">
-            <button @click="submit()"  type="submit" class="btn btn-primary">Search</button>
+            <router-link :to="{path: '/search', query:{text: this.queryText}}">
+              <button class="btn btn-primary">Search</button>
+            </router-link>
           </div>
         </div>
       </form>
@@ -25,27 +27,15 @@ export default {
     return {
       queryText: ''
     }
-  },
-  methods: {
-    async submit () {
-      const response = this.$http.get('', {params: {t: this.queryText, apikey: '1bdf27a'}})
-      return response.data
-    }
   }
 }
 </script>
+<style lang="scss">
 
-<style>
 .container {
   text-align: center;
-}
-.vertical-center {
-  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
+};
 
-  display: flex;
-  align-items: center;
-}
 @media (max-width: 576px) {
   .col-sm-12 {
     margin-top: 20px;
@@ -54,5 +44,5 @@ export default {
   .display-3 {
     font-size: 50px;
   }
-}
+};
 </style>
